@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MADXROHIT – All Institute Under One Universe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
+body{
+  background:radial-gradient(circle at top,#141b3a,#0b0f1f 70%);
+  color:#fff;
+  padding-bottom:90px;
+}
+
+/* ===== HEADER ===== */
+.top{
+  background:linear-gradient(135deg,#1b245a,#0b0f1f);
+  padding:18px 14px 26px;
+  position:relative;
+  text-align:center;
+}
+.top h1{font-size:18px}
+.top p{font-size:12px;color:#b8c1ff;margin-top:6px}
+
+/* HAMBURGER */
+.menu-btn{
+  position:absolute;
+  left:14px;
+  top:16px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* FLOAT BUTTON */
+.download-all{
+  margin-top:14px;
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff512f,#dd2476);
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 10px 30px rgba(255,80,120,.5);
+  animation:float 2.4s infinite ease-in-out;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
+.app-name{
+  margin-top:10px;
+  font-size:12px;
+  letter-spacing:1px;
+  color:#b8c1ff;
+}
+
+/* PAGE */
+.page{display:none}
+.page.active{display:block}
+
+/* ===== BATCH CARD (FULL THUMBNAIL) ===== */
+.list{padding:16px}
+
+.batch-card{
+  margin-bottom:22px;
+  border-radius:22px;
+  overflow:hidden;
+  background:#0f142b;
+  box-shadow:0 18px 40px rgba(0,0,0,.6);
+  transition:.25s;
+}
+.batch-card:active{transform:scale(.97)}
+
+.batch-thumb{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.batch-body{
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.batch-title{
+  font-size:16px;
+  font-weight:700;
+}
+
+.batch-fav{
+  font-size:26px;
+  color:#777;
+  cursor:pointer;
+}
+.batch-fav.active{
+  color:#ff3b5c;
+  text-shadow:0 0 12px rgba(255,60,90,.8);
+}
+
+/* VIEWER */
+.viewer{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:none;
+  z-index:60;
+  overflow:auto;
+}
+.viewer.show{display:block}
+
+/* PROFILE */
+.section-title{
+  text-align:center;
+  font-size:18px;
+  margin:22px 10px 14px;
+  font-weight:800;
+}
+
+.warning{
+  margin:16px;
+  padding:16px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#2a336d,#141b3a);
+  font-size:13.5px;
+  text-align:center;
+}
+
+.socials{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  padding:0 16px 18px;
+}
+.social-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#fff;
+  background:#141b3a;
+}
+.social-card img{width:32px;height:32px}
+
+.profile-download{
+  display:block;
+  margin:12px 20px 30px;
+  text-align:center;
+  padding:15px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#00f2fe,#4facfe);
+  color:#000;
+  font-weight:800;
+  text-decoration:none;
+}
+
+/* BOTTOM NAV */
+.bottom{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:#11172e;
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+}
+.bottom button{
+  background:none;
+  border:none;
+  color:#9aa4ff;
+  font-size:13px;
+}
+.bottom button.active{color:#fff}
+.bottom span{display:block;font-size:11px}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div class="menu-btn" onclick="alert('Menu coming soon')">☰</div>
+  <h1>MADXROHIT – ALL INSTITUTE UNDER ONE UNIVERSE</h1>
+  <p>All Premium Education Apps • Free for Everyone</p>
+
+  <a class="download-all" href="https://madxrohit.netlify.app/" target="_blank">
+    ⬇ Download All Apps
+  </a>
+  <div class="app-name">MADXROHIT OFFICIAL APP STORE</div>
+</div>
+
+<section id="home" class="page active">
+  <div id="batchList" class="list"></div>
+</section>
+
+<section id="fav" class="page">
+  <h3 class="section-title">❤️ Favourite Batches</h3>
+  <div id="favList" class="list"></div>
+</section>
+
+<section id="profile" class="page">
+  <h3 class="section-title">MADXROHIT</h3>
+
+  <div class="warning">
+    ⚠️ ये सभी ऐप्स <b>100% FREE</b> हैं।<br>
+    किसी को भी पैसे <b>ना दें</b>।
+  </div>
+
+  <div class="socials">
+    <a class="social-card" href="https://whatsapp.com/channel/0029VakDgLmBA1f6TRykhY0E" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"> WhatsApp
+    </a>
+    <a class="social-card" href="https://t.me/+DVRwarcX1bk0NGNl" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"> Telegram
+    </a>
+    <a class="social-card" href="https://instagram.com/madxrohit7" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"> Instagram
+    </a>
+    <a class="social-card" href="https://youtube.com/@madxrohit7" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"> YouTube
+    </a>
+  </div>
+
+  <a class="profile-download" href="https://madxrohit.netlify.app/" target="_blank">
+    DOWNLOAD OUR ALL MOD APPS FREE
+  </a>
+</section>
+
+<div id="viewer" class="viewer"></div>
+
+<nav class="bottom">
+  <button id="navHome" class="active" onclick="showPage('home')">🏠<span>Home</span></button>
+  <button id="navFav" onclick="showPage('fav')">❤️<span>Favourite</span></button>
+  <button id="navProfile" onclick="showPage('profile')">👤<span>Profile</span></button>
+</nav>
+
+<script>
+/* ===== ADD BATCHES HERE ===== */
+const batches=[
+ {
+  name:"Maths Batch",
+  file:"pages/maths.html",
+  thumb:"https://picsum.photos/800/400?random=1"
+ },
+ {
+  name:"Physics Batch",
+  file:"pages/physics.html",
+  thumb:"thumbnails/physics.jpg"
+ }
+];
+
+const list=document.getElementById("batchList");
+const favList=document.getElementById("favList");
+const viewer=document.getElementById("viewer");
+let favs=JSON.parse(localStorage.getItem("favs")||"[]");
+
+function render(){
+ list.innerHTML=""; favList.innerHTML="";
+ batches.forEach(b=>{
+  const liked=favs.includes(b.name);
+  const card=`
+   <div class="batch-card" onclick="openPage('${b.file}')">
+    <img class="batch-thumb" src="${b.thumb}">
+    <div class="batch-body">
+      <div class="batch-title">${b.name}</div>
+      <div class="batch-fav ${liked?'active':''}" onclick="event.stopPropagation();toggleFav('${b.name}')">♥</div>
+    </div>
+   </div>`;
+  list.innerHTML+=card;
+  if(liked) favList.innerHTML+=card;
+ });
+}
+
+function toggleFav(n){
+ favs=favs.includes(n)?favs.filter(x=>x!==n):[...favs,n];
+ localStorage.setItem("favs",JSON.stringify(favs));
+ render();
+}
+
+function openPage(f){
+ fetch(f).then(r=>r.text()).then(d=>{
+  viewer.innerHTML=d;
+  viewer.classList.add("show");
+ });
+}
+
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.querySelectorAll(".bottom button").forEach(b=>b.classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+ document.getElementById("nav"+id.charAt(0).toUpperCase()+id.slice(1)).classList.add("active");
+ viewer.classList.remove("show");
+}
+
+render();
+</script>
+
+</body>
+</html>
